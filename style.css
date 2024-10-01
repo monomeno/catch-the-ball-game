@@ -1,0 +1,94 @@
+/* تحديث إعدادات الأساسية */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('background.jpg'); /* صورة الخلفية */
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #fff; /* لون النص الأبيض */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل خفيف للنص */
+}
+
+#gameContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 2px solid #333;
+  background-color: rgba(255, 255, 255, 0.2); /* لون الخلفية نصف شفاف */
+  backdrop-filter: blur(5px); /* تأثير التمويه */
+  border-radius: 10px;
+  overflow: hidden; /* منع العناصر من الخروج خارج الحدود */
+}
+
+#player {
+  position: absolute;
+  bottom: 0;
+  left: 180px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #1e90ff, #00bfff); /* تدرج لوني */
+  border: 2px solid #000;
+  border-radius: 50%; /* شكل دائري */
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* ظل متوهج */
+  animation: bounce 1s infinite alternate; /* حركة تفاعلية */
+  transition: transform 0.1s;
+}
+
+#player:active {
+  transform: scale(0.9); /* تأثير عند الضغط */
+}
+
+#ball {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 30% 30%, #ff6347, #ff4500, #ff0000); /* تدرج لوني متطور */
+  border-radius: 50%; /* شكل دائري */
+  box-shadow: 0 0 20px rgba(255, 99, 71, 0.8), 0 0 40px rgba(255, 69, 0, 0.6); /* توهج */
+  animation: spin 2s linear infinite, fadeInOut 3s ease-in-out infinite; /* دوران و تلاشي */
+  transition: transform 0.2s ease;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0; /* اختفاء */
+    transform: scale(0.5); /* تصغير الحجم */
+  }
+  50% {
+    opacity: 1; /* ظهور كامل */
+    transform: scale(1.2); /* تكبير بسيط */
+  }
+}
+
+#score {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #fff; /* لون النص الأبيض */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل خفيف للنص */
+}
